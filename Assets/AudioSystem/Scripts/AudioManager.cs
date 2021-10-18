@@ -105,7 +105,7 @@ namespace M_634.Audio
 
         #endregion
 
-
+        #region methods
         private void Start()
         {
             menuSeAuidoSouce = InitializeAudioSource(this.gameObject, false, menuSeAMG);
@@ -198,5 +198,6 @@ namespace M_634.Audio
         {
 
         }
+        #endregion
     }
 }

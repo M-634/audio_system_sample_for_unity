@@ -15,6 +15,12 @@ namespace M_634.Audio
         //decibelから0 ~ 1.0fのLinear値へ変換
         public static float GetVolumeByLinear(this AudioMixer audioMixer, string exposedParamName)
         {
+            if(audioMixer == null)
+            {
+                Debug.LogError("Not Find AudioMixer. Please Cheack  AudioMixer in AudioManager Inspector");
+                return 0.0f;
+            }
+
             audioMixer.GetFloat(exposedParamName, out float decibel);
 
             if (decibel <= -96)
@@ -27,6 +33,11 @@ namespace M_634.Audio
         //0~1.0fのLinear値からdecibelへ変換
         public static void SetVolumeByLinear(this AudioMixer audioMixer, string exposedParamName, float volume)
         {
+            if (audioMixer == null)
+            {
+                Debug.LogError("Not Find AudioMixer. Please Cheack  AudioMixer in AudioManager Inspector");
+            }
+
             float decibel = 20.0f * Mathf.Log10(volume);
 
             if (float.IsNegativeInfinity(decibel))
