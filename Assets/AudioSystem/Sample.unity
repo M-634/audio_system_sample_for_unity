@@ -337,13 +337,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 131694277}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e610198fcb4182b4f9dafadc63b4ba05, type: 3}
+  m_Script: {fileID: 11500000, guid: 0dbf468f688ecba42ae26c678da51040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   masterSlider: {fileID: 892354155}
   bgmSlider: {fileID: 124691309}
-  gameSeSlider: {fileID: 1107487861}
-  envSlider: {fileID: 155759965}
+  gameSeSlider: {fileID: 155759965}
+  envSlider: {fileID: 1107487861}
 --- !u!1 &155759963
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,14 +13,14 @@ namespace M_634.Audio
     {
         #region singlton 
         private static AudioManager instance;
-        public static AudioManager Instance 
+        public static AudioManager Instance
         {
-            get 
+            get
             {
-                if(instance == null)
+                if (instance == null)
                 {
                     instance = FindObjectOfType<AudioManager>();
-                    if(instance == null)
+                    if (instance == null)
                     {
                         instance = new GameObject("AudioManager").AddComponent<AudioManager>();
                     }
@@ -59,7 +59,7 @@ namespace M_634.Audio
 
         [SerializeField, Header("VoiceSE")]
         List<AudioClip> voiceAuidoClipList = new List<AudioClip>();
-        AudioSource  voiceAuidoSouce;
+        AudioSource voiceAuidoSouce;
 
         [SerializeField, Header("BGM")]
         List<AudioClip> bgmAuidoClipList = new List<AudioClip>();
@@ -79,10 +79,10 @@ namespace M_634.Audio
         #endregion
 
         #region  properties
-        public float MasterVolume 
-        { 
-            get=> audioMixer.GetVolumeByLinear(MasterVolumeParaName); 
-            set=> audioMixer.SetVolumeByLinear(MasterVolumeParaName,value);
+        public float MasterVolume
+        {
+            get => audioMixer.GetVolumeByLinear(MasterVolumeParaName);
+            set => audioMixer.SetVolumeByLinear(MasterVolumeParaName, value);
         }
 
         public float GameSeVolume
@@ -122,7 +122,7 @@ namespace M_634.Audio
         /// <param name="isLoop">ループさせるかどうか</param>
         /// <param name="amg">指定のAudioMixerGrop</param>
         /// <returns>f</returns>
-        private AudioSource InitializeAudioSource(GameObject parentGameObject, bool isLoop = false,AudioMixerGroup amg = null)
+        private AudioSource InitializeAudioSource(GameObject parentGameObject, bool isLoop = false, AudioMixerGroup amg = null)
         {
             var audioSource = parentGameObject.AddComponent<AudioSource>();
 
@@ -145,8 +145,8 @@ namespace M_634.Audio
         /// <param name="isLoop">ループさせるかどうか</param>
         /// <param name="amg">指定のAudioMixerGrop</param>
         /// <returns>f</returns>
-        private List<AudioSource> InitializeAuioSources(GameObject parentGamaObject,bool isLoop = false,
-            AudioMixerGroup amg = null,int count = 1)
+        private List<AudioSource> InitializeAuioSources(GameObject parentGamaObject, bool isLoop = false,
+            AudioMixerGroup amg = null, int count = 1)
         {
             List<AudioSource> audioSources = new List<AudioSource>();
 
@@ -178,23 +178,23 @@ namespace M_634.Audio
 
         }
 
-        public void PlayBGMWithFadeIn(string clipName,float fadeTime = 2f)
+        public void PlayBGMWithFadeIn(string clipName, float fadeTime = 2f)
         {
 
         }
 
-        public void StopBGMWithFadeOut(string clipName,float fadeTime = 2f)
+        public void StopBGMWithFadeOut(string clipName, float fadeTime = 2f)
         {
 
         }
 
         public void StopBGMWithFadeOut(float fadeTime = 2f)
         {
-          
+
         }
 
 
-        public void PlayVoice(string clipName,float delayTime = 0f)
+        public void PlayVoice(string clipName, float delayTime = 0f)
         {
 
         }
