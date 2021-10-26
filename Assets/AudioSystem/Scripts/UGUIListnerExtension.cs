@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 
 
-namespace M_634.UGUIExtension
+namespace M_634.AudioSystemSample
 {
     /// <summary>
     /// UnityEngine.UIに含まれる各種クラスの拡張クラス

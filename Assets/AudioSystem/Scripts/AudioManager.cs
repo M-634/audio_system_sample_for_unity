@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;//AudioMixerクラスを使うために必要
 
-namespace M_634.Audio
+namespace M_634.AudioSystemSample
 {
     /// <summary>
     /// ゲーム全体のAudio機能を管理するクラス。

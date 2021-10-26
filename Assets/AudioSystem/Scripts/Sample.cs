@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
-using M_634.Audio;
+using M_634.AudioSystemSample;
 
 public class Sample : MonoBehaviour
 {

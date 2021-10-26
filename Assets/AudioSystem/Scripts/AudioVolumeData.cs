@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace M_634.Audio
+namespace M_634.AudioSystemSample
 {
     /// <summary>
     /// 音量データ。

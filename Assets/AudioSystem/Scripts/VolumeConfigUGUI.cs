@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using M_634.UGUIExtension;
 using UnityEngine.Events;
 
-namespace M_634.Audio
+namespace M_634.AudioSystemSample
 {
 
     /// <summary>
@@ -27,11 +26,11 @@ namespace M_634.Audio
 #endif
             LoadAudioVolume();
 
-            //set events
-            SetAudioVolumesEvent(masterSlider, vol => SetMasterVolumeData(vol));
-            SetAudioVolumesEvent(bgmSlider, vol => SetBGMVolumeData(vol));
-            SetAudioVolumesEvent(gameSeSlider, vol => SetGameSeVolumeData(vol));
-            SetAudioVolumesEvent(envSlider, vol => SetEnviromentVolumeData(vol));
+            //set slider events
+            SetAudioVolumesEvent(masterSlider, vol => AudioManager.Instance.MasterVolume = vol);
+            SetAudioVolumesEvent(bgmSlider, vol => AudioManager.Instance.BGMVolume = vol);
+            SetAudioVolumesEvent(gameSeSlider, vol => AudioManager.Instance.GameSeVolume = vol);
+            SetAudioVolumesEvent(envSlider, vol => AudioManager.Instance.EnviromentVolume = vol);
 
 
             //Init volume on slider value
@@ -71,28 +70,6 @@ namespace M_634.Audio
         private void SetAudioVolumesEvent(Slider slider, UnityAction<float> callBack)
         {
             slider.SetValueChangedEvent(callBack);
-        }
-
-        private void SetMasterVolumeData(float volume)
-        {
-            AudioManager.Instance.MasterVolume = volume;
-      
-        }
-        private void SetBGMVolumeData(float volume)
-        {
-            AudioManager.Instance.BGMVolume = volume;
-         
-        }
-
-        private void SetGameSeVolumeData(float volume)
-        {
-            AudioManager.Instance.GameSeVolume = volume;
-          
-        }
-        private void SetEnviromentVolumeData(float volume)
-        {
-            AudioManager.Instance.EnviromentVolume = volume;
-          
         }
     }
 }

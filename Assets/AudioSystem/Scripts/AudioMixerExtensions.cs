@@ -3,7 +3,7 @@ using System.Collections;
 using System.Runtime.CompilerServices;
 using UnityEngine.Audio;
 
-namespace M_634.Audio
+namespace M_634.AudioSystemSample
 {
     public static class AudioMixerExtensions
     {

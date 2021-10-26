@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.IO;
 
-namespace M_634.Audio
+namespace M_634.AudioSystemSample
 {
     public interface ISerializeToJson
     {
@@ -13,8 +13,31 @@ namespace M_634.Audio
 
     public static class JsonCutomUtility
     {
-        public static void SaveDataToJson<T>(string path, T data) where T: ISerializeToJson
+        private enum ErrorType
         {
+            None, PathIsNull, DataIsNotInstance
+        }
+
+        private static ErrorType CheackErrorType<T>(string path, T data) where T : ISerializeToJson
+        {
+            if (path == "")
+            {
+                Debug.LogError("pathが指定されていません");
+                return ErrorType.PathIsNull;
+            }
+
+            if (data == null)
+            {
+                Debug.LogError($"{typeof(T).Name}のデータオブジェクトがインスタンス化されていません");
+                return ErrorType.DataIsNotInstance;
+            }
+            return ErrorType.None;
+        }
+
+        public static void SaveDataToJson<T>(string path, T data) where T : ISerializeToJson
+        {
+            if (CheackErrorType(path, data) != ErrorType.None) return;
+
             var json = JsonUtility.ToJson(data, true);
 
             Debug.Log("シリアライズされた　JSONデータ" + json);
@@ -24,17 +47,13 @@ namespace M_634.Audio
             Debug.Log($"Save {typeof(T).Name} Data...");
         }
 
-        public static void LoadDataFromJson<T>(string path,ref T data) where T :ISerializeToJson
+        public static void LoadDataFromJson<T>(string path, ref T data) where T : ISerializeToJson
         {
-            if(data == null)
-            {
-                Debug.LogError($"{data}がインスタンス化されていません");
-                return;
-            }
+            if (CheackErrorType(path, data) != ErrorType.None) return;
 
+            //初期ロード
             if (!File.Exists(path))
             {
-                Debug.LogWarning($"{path}が存在しません");
                 data.InitMemberValues();
                 return;
             }
